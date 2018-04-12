@@ -5,5 +5,5 @@ public interface IList {
     Object remove(Object value);
     Object alter(Object value);
     boolean isEmpty();
-    void display();
+    void find();
 }

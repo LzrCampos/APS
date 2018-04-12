@@ -25,16 +25,16 @@ public class List implements IList {
 
     @Override
     public Object remove(Object value) {
-        if(isEmpty()) {
+        if (isEmpty()) {
             return null;
         } else {
             Node current = _fistNode;
             while (current != null) {
-                if(value.toString() == current.value.toString()){
+                if (value.toString() == current.value.toString()) {
                     
+                } else {
+                    current = current.next;
                 }
-                //current.displayNode();
-                //current = current.next;
             }
             return null;
         }
@@ -51,7 +51,7 @@ public class List implements IList {
     }
 
     @Override
-    public void display() {
+    public void find() {
         if (isEmpty()) {
             System.out.print("Lista vazia.");
         } else {
