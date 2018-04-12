@@ -27,8 +27,6 @@ public class Program {
         stack.push(20);
         stack.push(30);
         
-        Node n = new Node("");
-        
         stack.display();
         *
         
