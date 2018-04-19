@@ -9,6 +9,7 @@ public class Node {
     
     protected Object value;
     protected Node next;
+    protected Node Prev;
     
     public void displayNode() { 
         System.out.println(value.toString());

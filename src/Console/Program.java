@@ -15,8 +15,21 @@ public class Program {
         list.add(new Pet("Dogst", 8));
         list.add(new Pet("Catu", 3));
         list.add(new Pet("Hantaro", 20));
+        list.add(new Pet("a", 8));
+        list.add(new Pet("b", 3));
+        list.add(new Pet("c", 20));
         
-        list.display();
+        list.remove(0);
+        list.remove(0);
+        list.remove(0);
+        list.remove(0);
+        list.remove(0);
+        
+        System.out.println(list.getElement(0));
+        //System.out.println(list.getElement(1));
+        //System.out.println(list.getElement(2));
+        //System.out.println(list.getElement(3));
+        //System.out.println(list.getElement(4));
         
         
         //PILHA DINAMICA

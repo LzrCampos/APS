@@ -5,11 +5,11 @@ public class List implements IList {
     public List() {
         this._fistNode = null;
         this._lastNode = null;
-        this._index = 0;
+        this._qtt = 0;
     }
 
     private Node _fistNode, _lastNode;
-    private int _index;
+    private int _qtt;
 
     @Override
     public void add(Object value) {
@@ -21,27 +21,28 @@ public class List implements IList {
             _lastNode.next = newNode;
             _lastNode = newNode;
         }
+        this._qtt++;
     }
 
     @Override
-    public Object remove(Object value) {
-        if (isEmpty()) {
-            return null;
+    public void remove(int index) {
+        if (index == 0) {
+            removeOfFirst();
+        } else if (index == this._qtt) {
+            removeOfEnd();
         } else {
-            Node current = _fistNode;
-            while (current != null) {
-                if (value.toString() == current.value.toString()) {
-                    
-                } else {
-                    current = current.next;
-                }
-            }
-            return null;
+            Node anterior = find(index - 1);
+            Node atual = anterior.next;
+            Node proxima = atual.next;
+            anterior.next = proxima;
+            proxima.Prev = anterior;
+            this._qtt--;
         }
+
     }
 
     @Override
-    public Object alter(Object value) {
+    public void alter(Object value) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -51,16 +52,36 @@ public class List implements IList {
     }
 
     @Override
-    public void find() {
+    public Node find(int index) {
         if (isEmpty()) {
-            System.out.print("Lista vazia.");
+            return null;
         } else {
             Node current = _fistNode;
-            while (current != null) {
-                current.displayNode();
+            for (int i = 0; i < index; i++) {
                 current = current.next;
             }
-            System.out.println();
+            return current;
+        }
+    }
+
+    @Override
+    public Object getElement(int index) {
+        return find(index).value;
+    }
+
+    private void removeOfFirst() {
+        this._fistNode = this._fistNode.next;
+        this._qtt--;
+    }
+
+    private void removeOfEnd() {
+        if (this._qtt == 1) {
+            removeOfFirst();
+        } else {
+            Node penult = this._lastNode.Prev;
+            penult.next = null;
+            this._lastNode = penult;
+            this._qtt--;
         }
     }
 

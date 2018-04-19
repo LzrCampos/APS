@@ -2,8 +2,9 @@ package DynamicList;
 
 public interface IList {
     void add(Object value);
-    Object remove(Object value);
-    Object alter(Object value);
+    void remove(int index);
+    void alter(Object value);
     boolean isEmpty();
-    void find();
+    Node find(int index);
+    Object getElement(int index);
 }
